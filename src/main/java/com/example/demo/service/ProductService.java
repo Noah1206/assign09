@@ -32,7 +32,7 @@ public class ProductService {
     }
 
     public void update(Long id, ProductRequest request) {
-        return checkProduct(id).update(request);
+        checkProduct(id).update(request);
     }
 
     private Product checkProduct(Long id) {
