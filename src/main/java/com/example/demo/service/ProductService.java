@@ -35,6 +35,13 @@ public class ProductService {
         checkProduct(id).update(request);
     }
 
+    public void delete(Long id) {
+        if (!productRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found: " + id);
+        }
+        productRepository.deleteById(id);
+    }
+
     private Product checkProduct(Long id) {
         return productRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product is not found " + id));
     }
