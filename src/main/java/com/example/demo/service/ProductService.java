@@ -31,6 +31,10 @@ public class ProductService {
         return toResponse(checkProduct(id));
     }
 
+    public void update(Long id, ProductRequest request) {
+        return checkProduct(id).update(request);
+    }
+
     private Product checkProduct(Long id) {
         return productRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product is not found " + id));
     }

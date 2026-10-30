@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.example.demo.dto.ProductRequest;
+import com.example.demo.dto.ProductResponse;
 import jakarta.persistence.*;
 
 @Entity
