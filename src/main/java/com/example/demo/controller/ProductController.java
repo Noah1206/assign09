@@ -7,6 +7,9 @@ import com.example.demo.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -18,6 +21,12 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductResponse> create(@RequestBody ProductRequest request) {
+        ProductResponse productResponse = productService.create(request);
+        return ResponseEntity.created(URI.create("/api/books/" + productResponse.id())).body(productResponse);
+    }
 
+    @GetMapping
+    public List<ProductResponse> findAll() {
+        return productService.findAll();
     }
 }
