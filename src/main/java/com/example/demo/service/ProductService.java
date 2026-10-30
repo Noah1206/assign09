@@ -4,14 +4,17 @@ import com.example.demo.dto.ProductRequest;
 import com.example.demo.dto.ProductResponse;
 import com.example.demo.entity.Product;
 import com.example.demo.repository.ProductRepository;
+import jakarta.websocket.server.ServerEndpoint;
 import org.apache.coyote.Request;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProductService {
     private final ProductRepository productRepository;
     public ProductService(ProductRepository productRepository) {
